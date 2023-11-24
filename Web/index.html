@@ -1,0 +1,488 @@
+<!DOCTYPE html>
+<html>
+<head>  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+
+
+.center-div {
+ 
+  position: absolute;
+ 
+}
+
+
+
+@media (max-width: 768px) {
+  h1, h2, h3, .textStyle, .scheduleStyle {
+    font-size: larger;  /* Make text larger on small screens */
+  }
+}
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #EEEEEE;
+           /* background-image: url('images/bg.png');*/
+            padding: 5px;
+            color: #00b4cf;        /* Text color */
+            min-width: 300px;
+           
+        }
+       .subject {
+        color: #00b4cf;
+    position: relative; /* Fix the position */
+    top: 0;          /* Align to top */
+    left: 0;         /* Align to left */
+    margin: 10px;    /* Add some margin for spacing */
+    z-index: 100;    /* Place it above other elements */
+}
+
+
+
+       h1 {
+            margin: 5px;
+            font-size: 16px;
+            color: #f32c09;
+        }
+       
+       
+       h2 {
+            color: #084d75;
+            font-size: 16px;
+        }
+        h3 {
+            color: #15616d;
+            font-size: 15px;
+            text-decoration: underline;
+        }
+        #todoList {
+            margin-bottom: 20px;
+        }
+        .completed {
+            text-decoration: line-through;
+            text-decoration-color: #ffffff;
+        
+        }
+        body.dark .completed {
+            text-decoration: line-through;
+            text-decoration-color: #b10000;
+        }
+        button {
+            background-color: #092635;
+            color: #e2e8e2;;
+            border: none;
+            padding: 5px 10px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 11px;
+            margin: 4px 2px;
+            cursor: pointer;
+            border-radius: 5px;
+            font-weight: bold;
+        }
+        body.dark button {
+            background-color: #657b7c;
+            color: #092635;
+            border: none;
+            padding: 5px 10px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 11px;
+            margin: 4px 2px;
+            cursor: pointer;
+            border-radius: 5px;
+            font-weight: bold;
+        }
+        input[type=text] {
+            border: 1px solid #333;
+            border-radius : 5px;
+            padding: 4px;
+            margin-left: 14px;
+            margin-top: 4px;
+            margin-bottom: 4px;
+            box-sizing: border-box;
+            font-size: 12px;
+            background: #e2e8e2;
+        }
+        input[type=number] {
+            border: 1px solid #333;
+            border-radius : 5px;
+            padding: 4px;
+            margin-left: 14px;
+            margin-top: 4px;
+            margin-bottom: 4px;
+            box-sizing: border-box;
+            font-size: 12px;
+        }
+   
+        textarea{
+    width: 30%; /* Set the width to fill container */
+    height: 60px; /* Set the height */
+    padding: 10px; /* Add some padding */
+    box-sizing: border-box; /* Make sure padding doesn't affect the width */
+    border: 1px solid #333; /* Add a border */
+    background: #e2e8e2;
+    border-radius: 4px; /* Optional: add rounded corners */
+    resize: vertical; /* Allow vertical resizing, you could use "none" to disable resizing */
+    font-family: Arial, sans-serif; /* Set the font */
+    margin-left: 14px;
+    margin-top: 4px;
+    margin-bottom: 4px;
+        }
+        .textStyle {
+    color: #f32c09;         /* Text color */
+    font-size: 14px;    /* Font size */
+    /* Add any other CSS properties you want here */
+    
+
+}
+
+.container {
+  display: inline-block;
+  padding: 20px;
+  border-radius: 10px;
+  background-color: #e2e8e2;
+  margin-left: auto;
+  margin-right: auto;
+  position: relative; 
+  top: 0; left: 0; bottom: 0; right: 0;
+  width: 100%;  /* You can set your own width */
+   /* You can set your own height */
+ box-sizing: border-box;
+  height: auto; /* Height is set to auto */
+}
+
+/* For Light Mode */
+
+body.dark .container {
+  display: inline-block;
+  padding: 20px;
+
+  border: 0px solid #e90505;
+  border-radius: 10px;
+  background-color: #092635;/* #657b7c;*/
+  margin-left: auto;
+  margin-right: auto;
+  position: relative; 
+  top: 0; left: 0; bottom: 0; right: 0;
+  width: 100%;  /* You can set your own width */
+   /* You can set your own height */
+ box-sizing: border-box;
+  height: auto; /* Height is set to auto */
+}
+
+
+body.dark i.fas.fa-play {
+    color: chartreuse;
+}
+
+i.fas.fa-play {
+    color: #e90505;
+}
+
+
+
+
+body.dark .subject {
+    color: #0b70aa;
+    position: relative; /* Fix the position */
+    top: 0;          /* Align to top */
+    left: 0;         /* Align to left */
+    margin: 10px;    /* Add some margin for spacing */
+    z-index: 100; 
+}
+body.dark h1 {
+            margin: 5px;
+            font-size: 16px;
+            color: #f32c09;
+        }
+/* For Light Mode */
+body.dark .scheduleStyle {
+    margin-left: 15px;
+    padding-bottom: 20px;
+    color: #063c44;  /* Text color for Light Mode */
+    font-size: 12px; /* Font size for Light Mode */
+    /* Add any other CSS properties you want here for Light Mode */
+}
+
+/* For Dark Mode */
+body .scheduleStyle {
+    margin-left: 15px;
+  
+    color: #11a0b6;  /* Text color for Dark Mode */
+    font-size: 16px; /* Font size for Dark Mode */
+    /* Add any other CSS properties you want here for Dark Mode */
+}
+
+body {
+    /* Light mode colors */
+    --text-color: #657b7c;
+    --background-color: #092635;
+    --h1-color: #e2e8e2; 
+    --icon-color: #e55012;
+  }
+  
+  body.dark {
+    /* Dark mode colors */
+    --text-color: #e2e8e2;
+    --background-color: #657b7c;
+    --h1-color: #657b7c;
+    --h2-color: #11a0b6;
+    --icon-color: #e55012;
+   /* background-image: url('images/bg.png');*/
+  }
+  
+  body {
+    /* Use the variables */
+    color: var(--text-color);
+    background-color: var(--background-color);
+   /*background-image: url('images/bgd.png');*/
+
+  }
+  
+  h1 {
+    color: var(--h1-color);
+  }
+  
+  .switch-button {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    position: fixed; /* Fix the position */
+    bottom: 0;       /* Align to bottom */
+    right: 0;        /* Align to right */
+    margin: 10px;    /* Add some margin for spacing */
+    z-index: 100; 
+  }
+  
+  .switch-button i {
+    font-size: 24px;
+    color: var(--icon-color);  /* set color of the icons */
+  }
+
+  /*new*/
+  .task-header {
+            color: #f32c09; /* Set your desired color for headers */
+        }
+
+        .task-text {
+            margin-left: 20px; /* Set your desired margin for task text */
+            color: #092635; /* Set your desired color for task text */
+        }
+      body.dark .task-text {
+            margin-left: 20px; /* Set your desired margin for task text */
+            color: #e2e8e2; /* Set your desired color for task text */
+        }
+        /* Update existing styles if necessary */
+        .scheduleStyle {
+            margin-left: 15px;
+            color: #11a0b6; /* Updated color */
+            font-size: 16px;
+        }
+        span.delete-icon {
+    color: grey;cursor: pointer;margin-left: 5px;
+}
+.counter {
+    margin-left: 5px;
+    margin-right: 5px;
+}
+    </style>
+</head>
+<body>
+    <div class="container">
+        <button id="mode-toggler" class="switch-button">
+            <i id="moon-icon" class="fas fa-moon"></i>
+            <i id="sun-icon" class="fas fa-sun" style="display: none;"></i>
+        </button>
+        <h1>Todo List</h1>
+        <h2>
+            <div id="todoList">
+                <!-- Items will be added here -->
+            </div>
+        </h2>
+        <hr>
+        <h3>Add a new task</h3>
+        <label for="taskText">Task:</label><br>
+        <input type="text" id="taskText"><br>
+        <label for="taskSchedule">Schedule:</label><br>
+        <textarea maxlength="150" type="text" id="taskSchedule"></textarea><br>
+        <label for="taskDelay">Delay (seconds):</label><br>
+        <input type="number" id="taskDelay" min="0"><br>
+        <button onclick="addTask()">Add task</button>
+    </div>
+
+    <script>
+document.addEventListener('DOMContentLoaded', function () {
+    loadTasks();
+});
+
+let todoList = [];
+
+function saveTasks() {
+    localStorage.setItem('todoList', JSON.stringify(todoList));
+}
+
+function loadTasks() {
+    const data = localStorage.getItem('todoList');
+    if (data) {
+        todoList = JSON.parse(data);
+        todoList.forEach(task => { // Make sure to clear old intervals
+            if (task.intervalId) {
+                clearInterval(task.intervalId);
+                task.intervalId = null;
+            }
+        });
+        updateList();
+    }
+}
+
+function deleteTask(index) {
+    if (todoList[index].intervalId) {
+        clearInterval(todoList[index].intervalId); // Clear the interval if it exists
+    }
+    todoList.splice(index, 1); // Remove the task from the list
+    saveTasks();
+    updateList();
+}
+
+function toggleComplete(index) {
+    todoList[index].completed = !todoList[index].completed;
+    saveTasks();
+    updateList();
+}
+
+function addTask() {
+    const taskText = document.getElementById('taskText').value.trim();
+    const taskSchedule = document.getElementById('taskSchedule').value.trim();
+    const taskDelay = document.getElementById('taskDelay').value.trim();
+
+    if (taskText && taskSchedule && taskDelay) {
+        todoList.push({ text: taskText, schedule: taskSchedule, completed: false, delay: taskDelay, intervalId: null });
+
+        document.getElementById('taskText').value = '';
+        document.getElementById('taskSchedule').value = '';
+        document.getElementById('taskDelay').value = '';
+
+        saveTasks();
+        updateList();
+    } else {
+        alert('Please fill in all fields.');
+    }
+}
+
+function playSound(i, delay) {
+    const count = parseInt(delay, 10);
+    const counterElement = document.getElementById(`counter-${i}`);
+    if (!counterElement) return; // Guard clause if the element does not exist
+    counterElement.innerHTML = count;
+
+    clearInterval(todoList[i].intervalId); // Clear any existing interval
+    todoList[i].intervalId = setInterval(function() {
+        const currentCount = parseInt(counterElement.innerHTML, 10);
+        if (currentCount <= 0) {
+            clearInterval(todoList[i].intervalId);
+            var audio = new Audio('alert.mp3');
+            audio.play();
+            counterElement.innerHTML = '';
+            todoList[i].intervalId = null;
+        } else {
+            counterElement.innerHTML = currentCount - 1;
+        }
+    }, 1000);
+}
+
+function updateList() {
+    const listDiv = document.getElementById('todoList');
+    listDiv.innerHTML = '';
+
+    todoList.forEach((task, i) => {
+        const taskDiv = document.createElement('div');
+        taskDiv.className = 'task-item';
+        taskDiv.id = `task-${i}`; // Assign a unique ID to the task div
+
+        const checkBox = document.createElement('input');
+        checkBox.type = 'checkbox';
+        checkBox.checked = task.completed;
+        checkBox.onchange = function() { toggleComplete(i); };
+        taskDiv.appendChild(checkBox);
+
+        const taskHeader = document.createElement('span');
+        taskHeader.className = 'task-header';
+        taskHeader.textContent = task.text;
+        taskDiv.appendChild(taskHeader);
+
+        const taskText = document.createElement('span');
+taskText.className = 'task-text';
+// Create a separate span for the text after <br> to apply marginLeft
+taskText.innerHTML = '<br><span style="margin-left: 20px;">- ' + task.schedule + '</span>';
+taskDiv.appendChild(taskText);
+
+
+        const playIcon = document.createElement('span');
+        playIcon.innerHTML = '<i class="fas fa-play"></i>';
+        playIcon.style.cursor = 'pointer';
+        playIcon.onclick = function() { playSound(i, task.delay); };
+        taskDiv.appendChild(playIcon);
+
+        const counterElement = document.createElement('span');
+        counterElement.id = `counter-${i}`;
+        counterElement.className = 'counter';
+        taskDiv.appendChild(counterElement);
+
+        const deleteIcon = document.createElement('span');
+        deleteIcon.innerHTML = '&#x2716;';
+        deleteIcon.className = 'delete-icon';
+        deleteIcon.onclick = function() { deleteTask(i); };
+        taskDiv.appendChild(deleteIcon);
+
+        if (task.completed) {
+            taskHeader.classList.add('completed');
+            taskText.classList.add('completed');
+        }
+
+        listDiv.appendChild(taskDiv);
+    });
+}
+/*dark mode */
+// Function to toggle dark mode and save preference
+function toggleDarkMode() {
+    document.body.classList.toggle('dark'); // This toggles the dark class on the body
+    var mode = document.body.classList.contains('dark') ? 'dark' : 'light';
+    localStorage.setItem('theme', mode); // Save the mode in localStorage
+    updateIcons();
+}
+
+// Function to update the visibility of the moon/sun icons
+function updateIcons() {
+    if (document.body.classList.contains('dark')) {
+        document.getElementById('moon-icon').style.display = 'inline';
+        document.getElementById('sun-icon').style.display = 'none';
+    } else {
+        document.getElementById('moon-icon').style.display = 'none';
+        document.getElementById('sun-icon').style.display = 'inline';
+    }
+}
+
+// Event listener for the dark mode toggle button
+document.getElementById('mode-toggler').addEventListener('click', toggleDarkMode);
+
+// Function to load the saved theme preference
+function loadThemePreference() {
+    var savedMode = localStorage.getItem('theme');
+    if (savedMode === 'dark') {
+        document.body.classList.add('dark');
+    } else {
+        document.body.classList.remove('dark');
+    }
+    updateIcons();
+}
+
+// Load the theme preference when the document is loaded
+document.addEventListener('DOMContentLoaded', function() {
+    loadThemePreference();
+    loadTasks();
+});
+
+    </script>
+</body>
+</html>
