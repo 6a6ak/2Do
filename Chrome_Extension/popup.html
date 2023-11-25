@@ -39,7 +39,7 @@
         
         
                h1 {
-                    margin: 5px;
+                   
                     font-size: 16px;
                     color: #f32c09;
                 }
@@ -193,7 +193,7 @@
             z-index: 100; 
         }
         body.dark h1 {
-                    margin: 5px;
+                   
                     font-size: 16px;
                     color: #f32c09;
                 }
@@ -288,14 +288,32 @@
             margin-right: 5px;
             color: tomato;
         }
+        /*flex*/
+        .flex-container {
+    display: flex;
+    align-items: center; /* Vertically center items */
+}
+
+.flex-container img {
+    margin-right: 3px; /* Add some spacing between the image and text */
+}
+/*hr*/
+.blur-hr {
+    border: 0; height: 1px; background: linear-gradient(to right, transparent, #000, transparent);
+}
         /*footer*/
         .footer {
+    color: #092635;
+    text-align: center;
+    padding: 0px;margin: 0px;
+    font-size: 10px;
+}
+body.dark .footer {
     color: #e2e8e2;
     text-align: center;
     padding: 0px;margin: 0px;
     font-size: 10px;
 }
-
 .footer a {
     color: #007bff;
     text-decoration: none;
@@ -313,7 +331,12 @@
             <i id="moon-icon" class="fas fa-moon"></i>
             <i id="sun-icon" class="fas fa-sun" style="display: none;"></i>
         </button>
-        <h1>Todo List</h1>
+        <div class="flex-container">
+            <img src="images/2Do.ico" width="25px" alt="2Do Logo">
+            <h1>Todo List</h1>
+        </div>
+        
+    <hr class="blur-hr">
         <h2>
             <div id="todoList">
                 <!-- Items will be added here -->
@@ -330,7 +353,7 @@
      <input type="number" id="taskDelay" min="0"><br>
      <button id="addTaskButton">Add task</button>
     </div>
--->       <hr>
+-->       <hr class="blur-hr">
 
 
 
@@ -362,8 +385,10 @@
 
     <audio id="alertSound" src="sounds/alert.mp3" preload="auto"></audio>
     <footer class="footer">
-    <hr>
-   &copy; 2023 <a href="http://todo.tricks.se" target="_blank">2Do</a>. All Rights Reserved.</footer>
+        <hr class="blur-hr">
+ <div class="footer">
+     &copy; 2023 <a href="http://todo.tricks.se" target="_blank">2Do</a>. All Rights Reserved.</footer>
+ </div> 
 
 
 
