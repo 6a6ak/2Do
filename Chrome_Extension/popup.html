@@ -288,6 +288,23 @@
             margin-right: 5px;
             color: tomato;
         }
+        /*footer*/
+        .footer {
+    color: #e2e8e2;
+    text-align: center;
+    padding: 0px;margin: 0px;
+    font-size: 10px;
+}
+
+.footer a {
+    color: #007bff;
+    text-decoration: none;
+}
+
+.footer a:hover {
+    text-decoration: underline;
+}
+
 </style>
 </head>
 <body>
@@ -302,19 +319,54 @@
                 <!-- Items will be added here -->
             </div>
         </h2>
-        <hr>
-        <h3>Add a new task</h3>
-        <label for="taskText">Task:</label><br>
-        <input type="text" id="taskText"><br>
-        <label for="taskSchedule">Schedule:</label><br>
-        <textarea maxlength="150" type="text" id="taskSchedule"></textarea><br>
-        <label for="taskDelay">Delay (seconds):</label><br>
-        <input type="number" id="taskDelay" min="0"><br>
-        <button id="addTaskButton">Add task</button>
+ <!--
+
+     <h3>Add a new task</h3>
+     <label for="taskText">Task:</label><br>
+     <input type="text" id="taskText"><br>
+     <label for="taskSchedule">Schedule:</label><br>
+     <textarea maxlength="150" type="text" id="taskSchedule"></textarea><br>
+     <label for="taskDelay">Delay (seconds):</label><br>
+     <input type="number" id="taskDelay" min="0"><br>
+     <button id="addTaskButton">Add task</button>
     </div>
+-->       <hr>
+
+
+
+
+<!-- Trigger Button -->
+<button id="openModalButton">Add New Task</button>
+
+<!-- Modal Structure -->
+<div id="taskModal" style="display:none;">
+    <div>
+       <form>
+
+           <label for="taskText">Task:</label><br>
+           <input type="text" id="taskText"><br>
+           <label for="taskSchedule">Schedule:</label><br>
+           <textarea maxlength="150" type="text" id="taskSchedule"></textarea><br>
+           <label for="taskDelay">Delay (seconds):</label><br>
+           <input type="number" id="taskDelay" min="0"><br>
+           <button id="addTaskButton">Add task</button>
+           <button id="closeModalButton">Close</button>
+        </form>
+    </div>
+</div>
+
+<!-- Container to Display Added Tasks -->
+<div id="taskContainer"></div>
+
+
 
     <audio id="alertSound" src="sounds/alert.mp3" preload="auto"></audio>
+    <footer class="footer">
+    <hr>
+   &copy; 2023 <a href="http://todo.tricks.se" target="_blank">2Do</a>. All Rights Reserved.</footer>
 
-    <script src="popup.js"></script>
-</body>
+
+
+
+    <script src="popup.js"></script> 
 </html>
